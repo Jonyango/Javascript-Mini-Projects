@@ -1,0 +1,71 @@
+html{
+    font-size: 18px;
+    font-weight: 100;
+    box-sizing: border-box;
+    font-family: cursive;
+    background: url(weather-background.jpg);
+    background-size: cover;
+}
+body{
+    margin:0;
+    padding:0;
+}
+
+.overallContainer{
+    text-align: center;
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    color:#721c24;
+}
+
+.notification{
+    background-color: #f8d7da;
+    display: none;
+}
+.notification p{
+    color: #721c24;
+    font-size: 1.2em;
+    margin: 0;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.temperature-value p{
+    padding: 0;
+    margin: 0;
+    color: #293251;
+    font-size: 4em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.temperature-value p:hover{
+    
+}
+
+input{
+    padding:15px;
+    width:30%;
+    border: #721c24 solid 1px;
+    border-radius: 6px;
+
+}
+.button{
+    background-color: #fff;
+    padding:15px;
+    width:10%;
+    color: #293251;
+    border: #293251 solid 1px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+   
+}
+
+::placeholder{
+    color:#293251;
+    opacity: 1;
+    font-style: italic;
+    text-align: center;
+    font-size: 0.8rem;
+}
