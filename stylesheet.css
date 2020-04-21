@@ -41,6 +41,7 @@ body{
 }
 
 .temperature-value p:hover{
+    color:yellowgreen;
     
 }
 
@@ -68,4 +69,16 @@ input{
     font-style: italic;
     text-align: center;
     font-size: 0.8rem;
+}
+.location{
+    height: 30vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color:#293251;
+}
+
+.temperature-description p{
+    font-family: 'Times New Roman', Times, serif;
+
 }
