@@ -1,6 +1,6 @@
-//select the necessary HTML elements
+//select the necessary HTML elements will be used to set DOM elements from the API
 const weatherIcon = document.querySelector(".weather-icon");
-const tempValue= document.querySelector(".temperature-value p");
+const tempValue= document.querySelector(".temperature-degree p");
 const tempDescription= document.querySelector(".temperature-description p");
 const locationElement= document.querySelector(".location h3");
 const notification= document.querySelector(".notification");
@@ -49,22 +49,34 @@ function getWeather(latitude, longitude){
             return data;
         })
         .then(function(data){
-            const{ description, Icon} = data.weather[0];
+            const{ description, Icon, main} = data.weather[0];
 
             weatherData.temperature.value = Math.floor(data.main.temp - KELVIN);
             weatherData.description= description;
             weatherData.iconId = Icon;
             weatherData.city = data.name;
             weatherData.country = data.sys.country;
+            
         })
         .then(function(){
             displayWeather();
         });
 }
 
+
+// // setsIcon
+// function setIcon(iconId){
+// const skycon = new Skycons({color:'#fffff'});
+// const currentIcon = icon.replace(/-/g,"_").toUpperCase();
+
+// skycon.play();
+// return skycon.set(iconId,Skycons[iconId]);
+// }
+
+
 // display the weather in the UI
 function displayWeather(){
-    // iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
+   
     tempValue.innerHTML = `${weatherData.temperature.value}°<span>C</span>`;
     tempDescription.innerHTML = weatherData.description;
     locationElement.innerHTML = `${weatherData.city}, ${weatherData.country}`;
