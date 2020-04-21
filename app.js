@@ -49,13 +49,16 @@ function getWeather(latitude, longitude){
             return data;
         })
         .then(function(data){
-            const{ description, Icon, main} = data.weather[0];
+            const{ description} = data.weather[0];
 
             weatherData.temperature.value = Math.floor(data.main.temp - KELVIN);
             weatherData.description= description;
-            weatherData.iconId = Icon;
+            weatherData.iconId = data.weather[0].icon;
             weatherData.city = data.name;
             weatherData.country = data.sys.country;
+            console.log(weatherData.iconId);
+
+
             
         })
         .then(function(){
@@ -65,18 +68,21 @@ function getWeather(latitude, longitude){
 
 
 // // setsIcon
-// function setIcon(iconId){
-// const skycon = new Skycons({color:'#fffff'});
-// const currentIcon = icon.replace(/-/g,"_").toUpperCase();
+function setIcon(icon,iconId){
+const skycon = new Skycons({color:'#fffff'});
+const currentIcon = icon.replace(/ /g,"_").toUpperCase();
 
-// skycon.play();
-// return skycon.set(iconId,Skycons[iconId]);
-// }
+skycon.play();
+console.log(currentIcon);
+return skycon.set(iconId,Skycons[currentIcon]);
+
+}
 
 
 // display the weather in the UI
 function displayWeather(){
-   
+    weatherIcon.innerHTML=setIcon(`${weatherData.description}`,`${weatherData.iconId}`);
+
     tempValue.innerHTML = `${weatherData.temperature.value}°<span>C</span>`;
     tempDescription.innerHTML = weatherData.description;
     locationElement.innerHTML = `${weatherData.city}, ${weatherData.country}`;
