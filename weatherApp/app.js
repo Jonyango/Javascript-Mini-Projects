@@ -81,8 +81,7 @@ return skycon.set(iconId,Skycons[currentIcon]);
 
 // display the weather in the UI
 function displayWeather(){
-    weatherIcon.innerHTML=setIcon(`${weatherData.description}`,`${weatherData.iconId}`);
-
+    weatherIcon.innerHTML=setIcon(`${weatherData.description},${weatherData.iconId}`);
     tempValue.innerHTML = `${weatherData.temperature.value}°<span>C</span>`;
     tempDescription.innerHTML = weatherData.description;
     locationElement.innerHTML = `${weatherData.city}, ${weatherData.country}`;
