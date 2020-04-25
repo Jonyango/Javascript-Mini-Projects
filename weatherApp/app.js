@@ -94,16 +94,16 @@ function celsiusToFahrenheit(temperature){
 
 //  Changes temperature to either Celsisus or Fahrenheit when a user clicks on it.
 tempValue.addEventListener("click", function(){
-    if(weather.temperature.value === undefined) return;
+    if(weatherData.temperature.value === undefined) return;
     
-    if(weather.temperature.unit == "celsius"){
-        let fahrenheit = celsiusToFahrenheit(weather.temperature.value);
+    if(weatherData.temperature.unit == "celsius"){
+        let fahrenheit = celsiusToFahrenheit(weatherData.temperature.value);
         fahrenheit = Math.floor(fahrenheit);
         
         tempValue.innerHTML = `${fahrenheit}°<span>F</span>`;
-        weather.temperature.unit = "fahrenheit";
+        weatherData.temperature.unit = "fahrenheit";
     }else{
-        tempValue.innerHTML = `${weather.temperature.value}°<span>C</span>`;
-        weather.temperature.unit = "celsius"
+        tempValue.innerHTML = `${weatherData.temperature.value}°<span>C</span>`;
+        weatherData.temperature.unit = "celsius"
     }
 });
