@@ -1,3 +1,11 @@
+h1{
+    text-align: center;
+    color:#F47A0E;
+    font-family: fantasy;
+    letter-spacing: 0.2rem;
+    font-size: 45px;
+}
+
 .keyboard{
     position: fixed;
     left:0;
@@ -52,7 +60,7 @@
     width:36%;
     max-width:500px;
 }
-.keyboard__key-wide--activatable::after{
+.keyboard__key--activatable::after{
     content: '';
     top:10px;
     right:10px;
