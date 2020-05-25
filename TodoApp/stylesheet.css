@@ -40,7 +40,7 @@ span,em{
     border-radius: 12px;
  
 }
-::placeholder{
+.list-title::placeholder{
     font-size: 1.1rem;
     color:#F4F4F6;
     text-align: center;
@@ -61,10 +61,28 @@ span,em{
     border-radius: 50%;
     background:#BE0909;
     border:none;
-    justify-items: center;
+    justify-items: end;
     padding:12px;
     margin-top: 10px;
+    margin-left: 25px;
+   
 }
 .add-item i{
     color:#F4F4F6;
+}
+
+.todo-list{
+    list-style: none;
+}
+
+.todo-input{
+    padding: 10px;
+    border: 1px solid #F4F4F6;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    
+}
+.todo-input::placeholder{
+    text-align: center;
+    text-size-adjust:1.1rem ;
 }
