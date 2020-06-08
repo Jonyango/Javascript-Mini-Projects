@@ -81,8 +81,15 @@ span,em{
     margin-bottom: 10px;
     border-radius: 6px;
     
+    
 }
 .todo-input::placeholder{
     text-align: center;
     text-size-adjust:1.1rem ;
+}
+
+.done{
+    color:#BE0909;
+    text-decoration:line-through ;
+    font-style: italic;
 }

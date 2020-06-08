@@ -16,13 +16,15 @@ const todoList=document.createElement('ul');
 todoList.classList.add('todo-list');
 
 
-
 function init(){
     console.log('Hello World!')
     if(addList){
         addList.addEventListener('click',createList,false);
-    }
+    }  
     
+    if(todoList){
+        markComplete();
+    }
     
 }
 
@@ -36,7 +38,7 @@ function createList(){
     const list=document.createElement("Div");
     
     listTitle.type='text';
-    listTitle.placeholder='Enter name of List';
+    listTitle.placeholder='Title';
     
 
     listTitle.classList.add('list-title');
@@ -75,7 +77,7 @@ function addTask(text,list){
    todoList.insertAdjacentHTML('beforeend',
    `<li class="todo-item" data-key="${todo.id}">
    <input id="${todo.id}" type="checkbox"/>
-   <label for="${todo.id}" class="tick js-tick"></label>
+   <label for="${todo.id}" class="task-tick"></label>
    <span>${todo.text}</span>`);
 
    list.appendChild(todoList);
@@ -93,9 +95,9 @@ function displayInputForm(list){
     inputForm.classList.add('todo-form');
     input.classList.add('todo-input');
     
-    input.type='text';
+    input.autofocus=true;
     input.placeholder='Add task';
-    
+    input.setAttribute('type','text')
     inputForm.appendChild(input);
     list.appendChild(inputForm);
     
@@ -127,10 +129,50 @@ inputForm.addEventListener('submit',event=>{
 
 
 
+function toggleComplete(key){
+    //finding the index of the item key from the todoTasks array
+    //The index will help with changing the checked value of the item
+    const index=todoTasks.findIndex(item=>item.id===Number(key));
+    todoTasks[index].checked = !todoTasks[index].checked
 
+    const item=document.querySelector(`[data-key='${key}']`);
+    if (todoTasks[index].checked) {
+        item.classList.add('done');
+      } else {
+        item.classList.remove('done');
+      }
 
-
-
-window.onload=function(){
-    this.init();
 }
+
+
+// Marking a task as complete
+/**
+ * This function listens for clicks on the whole todo list
+ * Extracts the data key of where the click comes from if it is a checkbox.
+ * Passes the data-key to a toggle function that marks the task as complete.
+ */
+function markComplete(){
+    console.log('I am inside this function')
+    todoList.addEventListener('click',event=>{
+        const itemKey=event.target.parentElement.dataset.key;
+            console.log(itemKey);
+            toggleComplete(itemKey);
+      
+       if(event.target.classList.contains('task-tick')){
+            return true;
+            }
+    
+    });
+}
+
+
+
+// a function that will help us delete the todo items.
+
+function deleteTodoItem(){
+    
+}
+
+
+init()
+
